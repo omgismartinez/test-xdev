@@ -118,7 +118,6 @@ export function ProductTable ({ data }: ProductTableProps) {
       columns={columns}
       data={productData}
       resetRows={() => setProductData(data)}
-      newRowLink='/products/new'
     />
   )
 }
