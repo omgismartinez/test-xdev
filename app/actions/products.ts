@@ -1,19 +1,21 @@
+'use server'
+
 import { type productSchema } from '@/lib/validations/products'
 import { revalidatePath } from 'next/cache'
 import { type z } from 'zod'
 
-export async function updateProduct (
+export async function updateProductAction (
   input: z.infer<typeof productSchema
   >
 ) {
-  const user = await fetch(`https://fakestoreapi.com/products/${input.id}`, {
+  const product = await fetch(`https://fakestoreapi.com/products/${input.id}`, {
     method: 'PUT',
     body: JSON.stringify(input)
   })
 
-  if (!user) {
+  if (!product) {
     throw new Error('User not found')
   }
 
-  revalidatePath('/products')
+  revalidatePath('/product/[id]')
 }
