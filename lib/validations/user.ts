@@ -14,7 +14,7 @@ export const userSchema = z.object({
     street: z.string(),
     number: z.number(),
     zipcode: z.string(),
-    geoLocation: z.object({
+    geolocation: z.object({
       lat: z.string(),
       long: z.string()
     })
