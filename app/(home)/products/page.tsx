@@ -15,7 +15,7 @@ export default async function Users () {
   return (
     <main className='h-full space-y-2'>
       <ReturnLink go='/' />
-      <h1 className='text-center italic font-bold uppercase'>Products</h1>
+      <h1 className='text-center font-bold'>Productos</h1>
       <div className='flex justify-center items-center'>
         <ProductTable data={products} />
       </div>
