@@ -15,10 +15,8 @@ import { catchError } from '@/lib/utils'
 import { type User } from '@/lib/validations/user'
 import { type ColumnDef } from '@tanstack/react-table'
 import {
-  Copy,
   MoreHorizontal,
   Pen,
-  Star,
   Trash
 } from 'lucide-react'
 import { useState, useTransition } from 'react'
@@ -92,18 +90,6 @@ export function UserTable ({ data }: UserTableProps) {
                     <Pen className='mr-2 h-3.5 w-3.5 text-muted-foreground/70' />
                     Ver más
                 </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Pen className='mr-2 h-3.5 w-3.5 text-muted-foreground/70' />
-              Editar
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Copy className='mr-2 h-3.5 w-3.5 text-muted-foreground/70' />
-              Hacer una copia
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Star className='mr-2 h-3.5 w-3.5 text-muted-foreground/70' />
-              Favorito
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
