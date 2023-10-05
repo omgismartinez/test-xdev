@@ -7,6 +7,32 @@ import type {
 } from '@/lib/validations/user'
 import { revalidatePath } from 'next/cache'
 
+export async function getUsersAction () {
+  const res = await fetch('https://fakestoreapi.com/users')
+
+  if (!res) {
+    throw new Error('Users not found')
+  }
+
+  const users: Array<z.infer<typeof getUserSchema>> = await res.json()
+
+  return users
+}
+
+export async function getUserAction (
+  input: z.infer<typeof getUserSchema>
+) {
+  const res = await fetch(`https://fakestoreapi.com/users/${input.id}`)
+
+  if (!res) {
+    throw new Error('User not found')
+  }
+
+  const user: z.infer<typeof userSchema> = await res.json()
+
+  return user
+}
+
 export async function newUserAction (
   input: z.infer<typeof userSchema>
 ) {

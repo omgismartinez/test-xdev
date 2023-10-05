@@ -1,16 +1,10 @@
 import { UserForm } from '@/components/forms/user-form'
-import { ReturnLink } from '@/components/return-link'
+import Header from '@/components/header'
 
 export default function NewUser () {
   return (
-    <div className='space-y-6'>
-      <ReturnLink go={'/users'} />
-      <div>
-        <h3 className='text-lg font-medium'>Nuevo usuario</h3>
-        <p className='text-sm text-muted-foreground'>
-          Crea un nuevo usuario
-        </p>
-      </div>
+    <div className='space-y-8'>
+      <Header goTo='/users' title='Nuevo Usuario' />
       <UserForm />
     </div>
   )

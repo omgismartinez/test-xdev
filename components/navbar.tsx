@@ -20,7 +20,7 @@ export default function Navbar () {
     })
   }
   return (
-    <div className='flex justify-end pb-6'>
+    <div className='flex justify-end'>
       <Button
         disabled={isPending}
         onClick={handleLogout}

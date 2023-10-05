@@ -99,6 +99,7 @@ export function ProductForm ({ product }: ProductFormProps) {
                 <Textarea
                   placeholder='Descripción del producto'
                   className='resize-none'
+                  rows={6}
                   required
                   {...field}
                 />

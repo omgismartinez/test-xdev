@@ -1,6 +1,6 @@
 import { type User } from '@/lib/validations/user'
 import { UserTable } from '@/components/tables/user-table'
-import { ReturnLink } from '@/components/return-link'
+import Header from '@/components/header'
 
 async function getUsers () {
   const res = await fetch('https://fakestoreapi.com/users')
@@ -18,11 +18,8 @@ async function getUsers () {
 export default async function Users () {
   const users = await getUsers()
   return (
-    <main className='h-full space-y-2'>
-      <div className='flex items-center justify-between border-b py-4'>
-        <ReturnLink go='/' />
-        <h1 className='text-center font-bold'>Usuarios</h1>
-      </div>
+    <main className='h-full space-y-4'>
+      <Header goTo='/' title='Lista de Usuarios' />
       <UserTable data={users} />
     </main>
   )

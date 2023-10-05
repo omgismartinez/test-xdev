@@ -1,25 +1,12 @@
+import { getProductAction } from '@/app/actions/products'
 import { ProductForm } from '@/components/forms/product-form'
-import { ReturnLink } from '@/components/return-link'
-
-async function getUniqueProduct (id: string) {
-  const res = await fetch(`https://fakestoreapi.com/products/${id}`)
-
-  const data = await res.json()
-
-  return data
-}
+import Header from '@/components/header'
 
 export default async function EditProduct ({ params }: { params: { id: string } }) {
-  const product = await getUniqueProduct(params.id)
+  const product = await getProductAction({ id: Number(params.id) })
   return (
-    <main className='max-w-lg mx-auto space-y-3'>
-      <ReturnLink go={`/product/${params.id}`} />
-      <div>
-        <h3 className='text-lg font-medium'>Editar producto</h3>
-        <p className='text-sm text-muted-foreground'>
-          Edita un producto
-        </p>
-      </div>
+    <main className='max-w-2xl mx-auto space-y-8'>
+      <Header goTo={`/product/${params.id}`} title='Editar Producto' />
       <ProductForm product={product} />
     </main>
   )
