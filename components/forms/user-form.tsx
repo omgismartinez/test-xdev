@@ -80,7 +80,7 @@ export function UserForm ({ user }: UserFormProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4 grid'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='grid md:grid-cols-2 gap-4'>
         <FormField
           control={form.control}
           name='username'
@@ -238,17 +238,11 @@ export function UserForm ({ user }: UserFormProps) {
           )}
         />
 
-        {user
-          ? (
-              <Button type='submit' disabled={true}>
-                Actualizar
-              </Button>
-            )
-          : (
-              <Button type='submit' disabled={isPending}>
-                Crear usuario
-              </Button>
-            )}
+        <div className='md:col-span-2 w-full'>
+          <Button type='submit' className='w-full' disabled={isPending}>
+            {user ? 'Actualizar usuario' : 'Crear usuario'}
+          </Button>
+        </div>
       </form>
     </Form>
   )
