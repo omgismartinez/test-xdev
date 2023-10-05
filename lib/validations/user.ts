@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const userSchema = z.object({
-  id: z.number(),
+  id: z.number().optional(),
   email: z.string().email(),
   username: z.string(),
   password: z.string().optional(),
@@ -12,7 +12,7 @@ export const userSchema = z.object({
   address: z.object({
     city: z.string(),
     street: z.string(),
-    number: z.number(),
+    number: z.coerce.number(),
     zipcode: z.string(),
     geolocation: z.object({
       lat: z.string(),
