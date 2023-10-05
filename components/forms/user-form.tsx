@@ -19,6 +19,7 @@ import { useTransition } from 'react'
 import { toast } from 'sonner'
 import { catchError } from '@/lib/utils'
 import { newUserAction } from '@/app/actions/user'
+import { useRouter } from 'next/navigation'
 
 type Inputs = z.infer<typeof userSchema>
 
@@ -50,25 +51,30 @@ interface UserFormProps {
 export function UserForm ({ user }: UserFormProps) {
   const [isPending, startTransition] = useTransition()
 
+  const { push } = useRouter()
+
   const form = useForm<Inputs>({
     resolver: zodResolver(userSchema),
     defaultValues: user ?? defaultValues
   })
 
-  const isUser = !!user
-
   function onSubmit (data: Inputs) {
-    console.log(data)
     startTransition(async () => {
       try {
-        if (isUser) {
-          // await updateUserAction(data)
-          toast.message('Actualizar estara disponible pronto.')
+        if (user) {
+          toast.message('Actualizar estara disponible proximamente')
         } else {
-          await newUserAction({
-            ...data
-          })
-          toast.success('Product added successfully.')
+          toast.promise(
+            newUserAction(data),
+            {
+              loading: 'Creando usuario...',
+              success: (user) => {
+                push(`/users/${user.id}`)
+                return `Usuario creado con id: ${user.id}`
+              },
+              error: 'Error al crear usuario.'
+            }
+          )
         }
 
         form.reset()
