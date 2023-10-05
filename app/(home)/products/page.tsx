@@ -14,9 +14,11 @@ export default async function Users () {
   const products = await getProducts()
   return (
     <main className='h-full space-y-2'>
-      <ReturnLink go='/' />
-      <h1 className='text-center font-bold'>Productos</h1>
-      <div className='flex justify-center items-center'>
+      <div className='flex items-center justify-between border-y py-3 px-3'>
+        <ReturnLink go='/' />
+        <h1 className='text-center font-bold'>Productos</h1>
+      </div>
+      <div className=''>
         <ProductTable data={products} />
       </div>
     </main>

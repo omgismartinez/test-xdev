@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Home () {
   return (
-    <main className='flex min-h-screen items-center justify-center'>
+    <main className='flex items-center justify-center'>
       <div className='space-x-6'>
         <Link href={'/users'}
           className={cn(buttonVariants({

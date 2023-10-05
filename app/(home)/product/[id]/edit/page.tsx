@@ -14,7 +14,12 @@ export default async function EditProduct ({ params }: { params: { id: string } 
   return (
     <main className='max-w-lg mx-auto space-y-3'>
       <ReturnLink go={`/product/${params.id}`} />
-      <h1 className='text-center font-bold'>Producto</h1>
+      <div>
+        <h3 className='text-lg font-medium'>Editar producto</h3>
+        <p className='text-sm text-muted-foreground'>
+          Edita un producto
+        </p>
+      </div>
       <ProductForm product={product} />
     </main>
   )
