@@ -17,5 +17,5 @@ export async function updateProductAction (
     throw new Error('User not found')
   }
 
-  revalidatePath('/product/[id]')
+  revalidatePath('/(home)/product/[id]', 'page')
 }
