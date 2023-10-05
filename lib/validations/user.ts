@@ -25,5 +25,5 @@ export const userSchema = z.object({
 export type User = z.infer<typeof userSchema>
 
 export const getUserSchema = z.object({
-  id: z.number()
+  id: z.number().optional()
 })

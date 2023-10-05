@@ -31,7 +31,7 @@ export function UserTable ({ data }: UserTableProps) {
   const [isPending, startTransition] = useTransition()
   const [userData, setUserData] = useState<User[]>(data)
 
-  const handleDeleteUser = (id: number) => {
+  const handleDeleteUser = (id: number | undefined) => {
     setUserData((prevUserData) => prevUserData.filter((user) => user.id !== id))
   }
 
