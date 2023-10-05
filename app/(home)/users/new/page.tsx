@@ -3,7 +3,7 @@ import { ReturnLink } from '@/components/return-link'
 
 export default function NewUser () {
   return (
-    <div className='max-w-lg mx-auto space-y-6'>
+    <div className='space-y-6'>
       <ReturnLink go={'/users'} />
       <div>
         <h3 className='text-lg font-medium'>Nuevo usuario</h3>

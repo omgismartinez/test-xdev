@@ -13,7 +13,7 @@ async function getUniqueUser (id: string) {
 export default async function UserId ({ params }: { params: { id: string } }) {
   const user = await getUniqueUser(params.id)
   return (
-    <main className='max-w-lg mx-auto'>
+    <main>
       <ReturnLink go='/users' />
       <h1 className='text-center italic font-bold uppercase'>Usuario</h1>
       <UserForm user={user} />
