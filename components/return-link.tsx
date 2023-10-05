@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { ArrowLeftIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import React from 'react'
 import { buttonVariants } from './ui/button'
@@ -12,11 +13,10 @@ export function ReturnLink ({ go }: ReturnLinkProps) {
     <Link href={go}>
         <div
           className={cn(buttonVariants({
-            variant: 'secondary',
             size: 'sm'
           }))}
         >
-          Volver
+          <ArrowLeftIcon />
         </div>
       </Link>
   )
