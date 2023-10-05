@@ -1,10 +1,10 @@
-import { LoginForm } from '@/components/forms/login'
+import { AuthForm } from '@/components/forms/auth-form'
 
 export default function Auth () {
   return (
-    <main>
-      <h1 className='text-center italic font-bold uppercase'>Auth</h1>
-      <LoginForm />
+    <main className='space-y-4 w-full'>
+      <h1 className='text-center font-bold text-xl'>Inicia sesión</h1>
+      <AuthForm />
     </main>
   )
 }

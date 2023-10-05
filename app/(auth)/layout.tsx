@@ -1,8 +1,8 @@
 import { type Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Login',
-  description: 'Login to your account'
+  title: 'Iniciar sesión',
+  description: 'Inicia sesión en tu cuenta'
 }
 
 export default function AuthLayout ({
@@ -11,7 +11,18 @@ export default function AuthLayout ({
   children: React.ReactNode
 }) {
   return (
-    <main className='flex justify-center items-center min-h-screen'>
+    <main
+      className='
+        flex
+        justify-center
+        items-center
+        max-w-sm
+        mx-auto
+        min-h-screen
+        py-5
+        px-4
+      '
+    >
       {children}
     </main>
   )
