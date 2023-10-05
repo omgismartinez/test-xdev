@@ -2,7 +2,6 @@
 
 import { type z } from 'zod'
 import { userAuthAction } from '@/app/actions/auth'
-import { catchError } from '@/lib/utils'
 import { authSchema } from '@/lib/validations/auth'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
@@ -18,6 +17,7 @@ import {
   FormMessage
 } from '@/components/ui/form'
 import { Input } from '../ui/input'
+import { toast } from 'sonner'
 
 type Inputs = z.infer<typeof authSchema>
 
@@ -43,7 +43,7 @@ export function AuthForm () {
         localStorage.setItem('token', token)
         router.push('/')
       } catch (err) {
-        catchError(err)
+        toast.error('Credenciales incorrectas')
       }
     })
   }
