@@ -10,17 +10,18 @@ import { revalidatePath } from 'next/cache'
 export async function newUserAction (
   input: z.infer<typeof userSchema>
 ) {
-  console.log('newUserAction', input)
-  const user = await fetch('https://fakestoreapi.com/users', {
+  const res = await fetch('https://fakestoreapi.com/users', {
     method: 'POST',
     body: JSON.stringify(input)
   })
 
-  if (!user) {
+  if (!res) {
     throw new Error('User not found')
   }
 
-  revalidatePath('/users')
+  const newUser: { id: number } = await res.json()
+
+  return newUser
 }
 
 export async function deleteUserAction (
