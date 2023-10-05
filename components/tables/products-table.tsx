@@ -71,14 +71,18 @@ export function ProductTable ({ data }: ProductTableProps) {
           </DropdownMenuTrigger>
           <DropdownMenuContent align='end' className='w-[160px]'>
             <DropdownMenuItem asChild>
-                <Link
-                  href={`/products/${row.original.id}`}
-                >
-                    Ver más
-                </Link>
+              <Link
+                href={`/product/${row.original.id}`}
+              >
+                Ver más
+              </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              Editar
+            <DropdownMenuItem asChild>
+              <Link
+                href={`/product/${row.original.id}/edit`}
+              >
+                Editar
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
